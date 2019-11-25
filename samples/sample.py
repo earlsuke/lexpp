@@ -35,9 +35,18 @@ def normalize_hyokiyure():
 	reference = "漫画喫茶"
 	hyokiyure_list = ["まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
 
+	print("original:", hyokiyure_list)
+
+	repr_form_list = []
+
 	for i in hyokiyure_list:
 		entry = list(pp.lookup(i))[0]
-		assert(reference == pp.get_representation_form(entry))
+		repr_form = pp.get_representative_form(entry)
+		assert(reference == repr_form)
+		repr_form_list.append(repr_form)
+
+	print("normalized:", repr_form_list)
+		
 
 
 def main():
