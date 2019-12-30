@@ -88,11 +88,35 @@ pp = Lexpp(external_dict_path = {your dictionary})
 
 ### How to use
 
+```python
+import lexpp as lp
+pp = lp.Lexpp()
+```
+
 The current version of the software provides the following utilities.
 
 1. Lookup a key string from the dictionary to get lexical entities.    lookup(surface: str) -> Tuple(Entry)
+```python
+TESTCASE = "マンガ喫茶"
+result = pp.lookup(TESTCASE)
+```
 2. Lookup a key entry to obtain a synset(a set of synonyms).  get_synset(e: Entry) -> Tuple(str)
+```python
+entry = result[0]
+synonyms = pp.get_synset(entry)
+# synonyms = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
+```
 3. Transform a key entry into a string of representive form.  get_representive_form(e: Entry) -> str
+```python
+repr_form = pp.get_representive_form(entry)
+# repr_form = "漫画喫茶"
+```
+4. Lookup a set of group id which is commonly registered among the input surface list. If no groups existed , an empty set will be returned.  get_common_category_id_set(surfaces: List[str]) -> Set[int]
+```python
+TESTCASE_LIST = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
+gid_set = pp.get_common_category_id_set(TESTCASE_LIST)
+# gid_set = {27}
+```
 
 For more details, See [samples/sample.py](samples/sample.py)
 
