@@ -97,4 +97,7 @@ class Lexpp:
         for surface_i in surfaces:
             cat_lst.append([x.group_id for x in self.lookup(surface_i)])
 
+        if len(cat_lst) == 0:
+            return set()
+
         return set.intersection(*[set(x) for x in cat_lst])

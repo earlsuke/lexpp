@@ -103,6 +103,14 @@ class TestLexpp(unittest.TestCase):
         correct_id2 = 45
         ans = lpp.get_common_category_id_set(g3)
         self.assertTrue(correct_id2 in ans)
+
+        g4 = []
+        ans = lpp.get_common_category_id_set(g4)
+        self.assertEqual(0, len(ans))
+
+        g5 = [""]
+        ans = lpp.get_common_category_id_set(g5)
+        self.assertEqual(0, len(ans))
     
     def test_get_common_category_api_performance(self):
 
@@ -117,7 +125,6 @@ class TestLexpp(unittest.TestCase):
         g_none.append("プレート")
         ans_none = lpp.get_common_category_id_set(g_none)
         self.assertEqual(0, len(ans_none))
-
 
 if __name__ == '__main__':
     unittest.main()
