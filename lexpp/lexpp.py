@@ -13,7 +13,7 @@ sys.modules["dictionary"] = LexicalDictionary
 
 class Lexpp:
 
-    __version_info__ = (0, 0, 3)
+    __version_info__ = (1, 1, 0)
 
     def __init__(self, external_dict_path: str = "", external_dict: LexicalDictionary = None):
         # prepare dicts

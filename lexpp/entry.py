@@ -1,3 +1,5 @@
+#coding:utf-8
+
 class Entry:
 
     def __init__(self, surface: str, group_id: int):

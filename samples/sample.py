@@ -46,7 +46,6 @@ def normalize_hyokiyure():
 		repr_form_list.append(repr_form)
 
 	print("normalized:", repr_form_list)
-		
 
 
 def main():

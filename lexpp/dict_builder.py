@@ -1,3 +1,5 @@
+# coding:utf-8
+
 from codecs import open
 from sys import stderr
 from lexpp.entry import Entry
@@ -17,7 +19,7 @@ UNDEF = "undefined"
 
 class DictBuilder:
 
-    __version_info__ = (0, 0, 3)
+    __version_info__ = (1, 1, 0)
 
     @staticmethod
     def is_representive(entry: Entry):
