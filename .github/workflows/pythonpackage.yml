@@ -34,4 +34,5 @@ jobs:
         pytest
     - name: Run sample file
       run: |
+        python -m pip install lexpp
         python samples/sample.py
