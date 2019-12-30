@@ -1,23 +1,23 @@
-from sudachipy.dictionary import Dictionary
 from lexpp import Lexpp
 
-tk = Dictionary().create()
 pp = Lexpp()
 
 def replace_with_synonynms():
 
-	input = "宛先はこちら"
-	res = [n.surface() for n in tk.tokenize(input)]
+	INPUT = "宛先はこちら"
 
-	# res == "宛先"
-	entry = list(pp.lookup(res[0]))[0]
+	# In practical, you must tokenize text into words
+	res = INPUT[0:2]
+
+	entry = list(pp.lookup(res))[0]
 	synset = pp.get_synset(entry)
 
 	replaced = []
 	for syn in synset:
-		replaced.append(input.replace(res[0], syn.surface))
+		replaced.append(INPUT.replace(res, syn.surface))
 
-	print(input, "->", replaced)
+	print(INPUT, "->", replaced)
+
 
 def normalize_hyokiyure():
 
