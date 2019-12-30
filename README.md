@@ -14,12 +14,38 @@
 
 ### 使い方
 
+```python
+import lexpp as lp
+pp = lp.Lexpp()
+```
+
 現在のバージョンでは，下記の機能を提供しています．
 
 1. 文字列を辞書引きして，辞書に登録されている情報(Entry)を呼び出す．  lookup(surface: str) -> Tuple(Entry)
+```python
+TESTCASE = "マンガ喫茶"
+result = pp.lookup(TESTCASE)
+```
+
 2. Entryをキーとして，同じグループに登録されている文字列集合を得る．  get_synset(e: Entry) -> Tuple(str)
+```python
+entry = result[0]
+synonyms = pp.get_synset(entry)
+# synonyms = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
+```
+
 3. Entryをキーとして，代表表記として登録されている文字列を得る．      get_representive_form(e: Entry) -> str
+```python
+repr_form = pp.get_representive_form(entry)
+# repr_form = "漫画喫茶"
+```
+
 4. 複数の文字列をクエリとして，共通して登録されているグループIDの集合を得ます．共通して登録されているグループが存在しない場合は，空の集合が返されます． get_common_category_id_set(surfaces: List[str]) -> Set[int]
+```python
+TESTCASE_LIST = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
+gid_set = pp.get_common_category_id_set(TESTCASE_LIST)
+# gid_set = {27}
+```
 
 サンプルコードを下記に示します．
 
@@ -33,7 +59,9 @@
 
 ビルド後，Lexppクラスのインスタンスのパラメータとしてファイル名を指定してください．
 
-```pp = Lexpp(external_dict_path = {your dictionary})```
+```python
+pp = Lexpp(external_dict_path = {your dictionary})
+```
 
 ### ライセンス
 
