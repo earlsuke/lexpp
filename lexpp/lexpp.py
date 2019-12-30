@@ -1,4 +1,6 @@
-from typing import Tuple, Dict, List
+# coding:utf-8
+
+from typing import Tuple, Dict, List, Set
 from pkg_resources import resource_stream
 import pickle as pkl
 
@@ -83,3 +85,16 @@ class Lexpp:
         returns a string which is representive form of given entry.
         """
         return self.__resources.groupid_lexid2representive_form[(entry.group_id, entry.lex_id)] if (entry.group_id, entry.lex_id) in self.__resources.groupid_lexid2representive_form.keys() else ""
+
+    def get_common_category_id_set(self, surfaces: List[str]) -> Set[int]:
+        """
+        Checks whether all of surfaces in the input list belong to same group or not.
+        The returned list has group ids which is commonly assigined to input surfaces.
+        """
+
+        cat_lst = []
+
+        for surface_i in surfaces:
+            cat_lst.append([x.group_id for x in self.lookup(surface_i)])
+
+        return set.intersection(*[set(x) for x in cat_lst])
