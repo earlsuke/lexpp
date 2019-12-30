@@ -19,6 +19,7 @@
 1. 文字列を辞書引きして，辞書に登録されている情報(Entry)を呼び出す．  lookup(surface: str) -> Tuple(Entry)
 2. Entryをキーとして，同じグループに登録されている文字列集合を得る．  get_synset(e: Entry) -> Tuple(str)
 3. Entryをキーとして，代表表記として登録されている文字列を得る．      get_representive_form(e: Entry) -> str
+4. 複数の文字列をクエリとして，共通して登録されているグループIDの集合を得ます．共通して登録されているグループが存在しない場合は，空の集合が返されます． get_common_category_id_set(surfaces: List[str]) -> Set[int]
 
 サンプルコードを下記に示します．
 
