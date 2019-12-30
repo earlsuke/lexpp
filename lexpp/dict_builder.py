@@ -96,8 +96,9 @@ class DictBuilder:
 def main():
 
     ps = argparse.ArgumentParser(description='lexpp dictionary builder')
-    ps.add_argument('-i', '--input', help='input file name')
-    ps.add_argument('-o', '--output', help='output file name')
+    # ps.add_argument('-i', '--input', help='input file name')
+    ps.add_argument('input', help='input file name')
+    ps.add_argument('output', help='output file name')
     args = ps.parse_args()
 
     input_filename = args.input
