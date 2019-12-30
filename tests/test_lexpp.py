@@ -85,6 +85,38 @@ class TestLexpp(unittest.TestCase):
 
         with self.assertRaises(FileNotFoundError):
             lp = Lexpp(external_dict=d)
+    
+    def test_get_common_category_id_success(self):
+
+        lpp = Lexpp()
+
+        g1 = ["お喋り", "おしゃべり", "話", "はなし", "トーク"]
+        correct_id1 = 7
+        ans = lpp.get_common_category_id_set(g1)
+        self.assertTrue(correct_id1 in ans)
+        
+        g2 = ["閉店", "開店"]
+        ans = lpp.get_common_category_id_set(g2)
+        self.assertEqual(len(ans), 0)
+
+        g3 = ["プレーヤー", "プレイヤー"]
+        correct_id2 = 45
+        ans = lpp.get_common_category_id_set(g3)
+        self.assertTrue(correct_id2 in ans)
+    
+    def test_get_common_category_api_performance(self):
+
+        lpp = Lexpp()
+
+        correct_id = 45
+        g = ["プレーヤー", "プレイヤー"] * 10000
+        ans = lpp.get_common_category_id_set(g)
+        self.assertTrue(correct_id in ans)
+
+        g_none = g
+        g_none.append("プレート")
+        ans_none = lpp.get_common_category_id_set(g_none)
+        self.assertEqual(0, len(ans_none))
 
 
 if __name__ == '__main__':
