@@ -32,3 +32,6 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Run sample file
+      run: |
+        python samples/sample.py
