@@ -1,6 +1,7 @@
+# coding:utf-8
+
 from typing import Tuple
 from collections import defaultdict
-
 
 class LexicalDictionary:
 

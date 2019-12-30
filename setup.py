@@ -3,7 +3,7 @@ from codecs import open
 
 setup(
     name='lexpp',
-    version='1.0.0',
+    version='1.1.0',
     description='A lexical pre-processing module for Japanese text',
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
