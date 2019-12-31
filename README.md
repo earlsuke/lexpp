@@ -27,11 +27,11 @@ TESTCASE = "マンガ喫茶"
 result = pp.lookup(TESTCASE)
 ```
 
-2. Entryをキーとして，同じグループに登録されている文字列集合を得る．  get_synset(e: Entry) -> Tuple(str)
+2. Entryをキーとして，同じグループに登録されている文字列のタプルを得る．  get_synset(e: Entry) -> Tuple(str)
 ```python
 entry = result[0]
-synonyms = pp.get_synset(entry)
-# synonyms = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
+synset = pp.get_synset(entry)
+# synset = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
 ```
 
 3. Entryをキーとして，代表表記として登録されている文字列を得る．      get_representive_form(e: Entry) -> str
@@ -100,10 +100,10 @@ The current version of the software provides the following utilities.
 TESTCASE = "マンガ喫茶"
 result = pp.lookup(TESTCASE)
 ```
-2. Lookup a key entry to obtain a synset(a set of synonyms).  get_synset(e: Entry) -> Tuple(str)
+2. Lookup a key entry to obtain a synset(a tuple of synonyms).  get_synset(e: Entry) -> Tuple(str)
 ```python
 entry = result[0]
-synonyms = pp.get_synset(entry)
+synset = pp.get_synset(entry)
 # synonyms = ["漫画喫茶", "まんが喫茶", "マンガ喫茶", "漫喫", "まん喫", "マン喫"]
 ```
 3. Transform a key entry into a string of representive form.  get_representive_form(e: Entry) -> str
