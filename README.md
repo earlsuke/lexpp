@@ -53,7 +53,7 @@ gid_set = pp.get_common_category_id_set(TESTCASE_LIST)
 
 ### 独自辞書の作り方
 
-```python -m lexpp.dict_builder --input {your dictioanry} --output {output filename}```
+```python -m lexpp.dict_builder {your lexicon} {output filename}```
 
 注意点: 入力ファイルは[synonym辞書](https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md)と同じフォーマットであることを想定しています．
 
@@ -122,7 +122,7 @@ For more details, See [samples/sample.py](samples/sample.py)
 
 ### How to build your dictionary
 
-```python -m lexpp.dict_builder --input {your dictioanry} --output {output filename}```
+```python -m lexpp.dict_builder {your lexicon} {output filename}```
 
 NOTE: The input file must be formatted by [the Sudachi synonym dict format]((https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md).
 
